@@ -46,7 +46,7 @@ const Transactions = () => {
         <p className="mt-50 text-xl font-bold text-red-600">No transactions found.</p>
       ) : (
         <ul className="space-y-3 mb-30">
-          {transactions.map((txn) => (
+          {transactions?.map((txn) => (
             <li
               key={txn.id}
               className="p-3 font-bold border rounded shadow-sm flex justify-between items-center"
@@ -73,11 +73,14 @@ const Transactions = () => {
                 </div>
               ) : (
                 <>
-                  <span>{txn.note}</span>
-                  <div className="text-right">
-                    <p className="text-red-600 font-bold">- ${txn.amount}</p>
-                    <p className="text-sm text-gray-500 font-bold">{txn.date}</p>
-                    <div className="flex gap-2 mt-1">
+                  <div className="flex flex-col sm:flex-row sm:justify-between w-full">
+                    <div className="mb-1">
+                      <span className="block font-bold">{txn.note}</span>
+                      <p className="text-red-600 font-bold">- ${txn.amount}</p>
+                      <p className="text-sm text-gray-500 font-bold mt-1">{txn.date}</p>
+                    </div>
+
+                    <div className="flex sm:flex-row flex-col gap-2 mt-2 sm:mt-0 sm:items-center">
                       <button
                         onClick={() => startEdit(txn)}
                         className="bg-blue-500 text-white px-2 py-1 rounded text-sm"
@@ -93,6 +96,7 @@ const Transactions = () => {
                     </div>
                   </div>
                 </>
+
               )}
             </li>
           ))}
