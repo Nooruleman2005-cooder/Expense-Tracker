@@ -31,9 +31,7 @@ function AddExpense() {
   return (
     <div className="my-4">
       <form onSubmit={handleSubmit} className="mt-40 bg-gray-100 p-4 rounded shadow">
-        <label className="block mb-2 font-medium text-gray-700">
-          Add Amount
-        </label>
+        <h2>Add Amount</h2>
         <input
           type="number"
           value={amount}
